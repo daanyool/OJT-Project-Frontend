@@ -1,13 +1,4 @@
 # rai-pos-backoffice
-  install => open terminal type these commands:
-  ```bash
-  cd pos_management
-  npm install
-  # to run =>
-  npm run dev
-  ```
-   
-    
 
 # POS Backoffice – Git Workflow Guide
 
@@ -136,6 +127,15 @@ git push origin feature/my-task --force-with-lease
 - **Never commit directly to `main`**  
 - Always **rebase before pushing**  
 - Use `--force-with-lease` instead of `--force`  
-- Write clear commit messages (`feat:`, `fix:`, `docs:`)  
+- Write clear commit messages (`feat:`, `fix:`, `docs:`)
+
+### install => open terminal type these commands:
+  ```bash
+  cd pos_management
+  npm install
+  # to run =>
+  npm run dev
+  ```
+   
 
   
