@@ -3,9 +3,11 @@
   ```bash
   cd pos_management
   npm install
+  # to run =>
+  npm run dev
   ```
-  run => 
-    npm run dev
+   
+    
 
 # POS Backoffice – Git Workflow Guide
 
