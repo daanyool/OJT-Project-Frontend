@@ -43,7 +43,7 @@ Hi username! You've successfully authenticated
 
 ## 🌱 2. Clone Repo with SSH
 ```bash
-git clone git@github.com:your-org/pos-backoffice.git
+git clone git@github.com:rightappsinc/rai-pos-backoffice.git
 cd pos-backoffice
 ```
 
