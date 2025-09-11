@@ -1,7 +1,9 @@
 # rai-pos-backoffice
   install => open terminal type these commands:
-    cd pos_management
-    npm install
+  ```bash
+  cd pos_management
+  npm install
+  ```
   run => 
     npm run dev
 
