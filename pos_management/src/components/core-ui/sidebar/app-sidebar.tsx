@@ -56,7 +56,7 @@ export default function AppSidebar(data: SidebarData) {
                data-[state=closed]:hidden
                "
             >
-              <span className="truncate font-medium text-xl">Acme Inc</span>
+              <span className="truncate font-semibold text-xxl">PoSVine</span>
             </div>
           </Link>
         </SidebarHeader>
