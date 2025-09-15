@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export default function DashboardPage() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [selectedBranch, setSelectedBranch] = useState('');
   const pathname = usePathname();
 
   const tabs = [
@@ -15,16 +17,30 @@ export default function DashboardPage() {
     { name: 'Finance', route: '/dashboard/finance' },
   ];
 
+  const branches = [
+    { value: '', label: 'Select Branch' },
+    { value: 'north', label: 'North Branch' },
+    { value: 'south', label: 'South Branch' },
+    { value: 'east', label: 'East Branch' },
+    { value: 'west', label: 'West Branch' },
+  ];
+
   return (
     <main className="p-2 m-4 flex flex-col gap-10 h-[80vh]">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <div className="flex items-center gap-4">
-          <input 
-            type="text"
-            placeholder="Branch..."
+          <select
+            value={selectedBranch}
+            onChange={e => setSelectedBranch(e.target.value)}
             className="border rounded px-3 py-2"
-          />
+          >
+            {branches.map(branch => (
+              <option key={branch.value} value={branch.value}>
+                {branch.label}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       {/* Tab Buttons and Date Range Picker */}
@@ -68,6 +84,16 @@ export default function DashboardPage() {
           </CardHeader>
         </Card>
       </div>
+
+      <footer className="text-right text-sm text-gray-500 py-4"> 
+                <span className='align-middle'>&copy;Powered By:</span>
+                <Image className='inline-block mb-1'
+                  src="/Logo_RAI.png"
+                  alt="Your Company Logo"
+                  width={100}
+                  height={55}
+                />
+              </footer>
     </main>
   )
 }
