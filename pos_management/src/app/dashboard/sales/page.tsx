@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Footer from '@/components/ui/footer';
 
 export default function SalesPage() {
   const [startDate, setStartDate] = useState('');
@@ -94,16 +95,7 @@ export default function SalesPage() {
           </CardHeader>
         </Card>
       </div>
-        <footer className="text-right text-sm text-gray-500 py-4"> 
-          <span className='align-middle'>&copy;Powered By:</span>
-          <Image className='inline-block mb-1'
-            src="/Logo_RAI.png"
-            alt="Your Company Logo"
-            width={100}
-            height={55}
-          />
-        </footer>
-
+      <Footer />
     </main>
     
   )
