@@ -87,24 +87,24 @@ export default function InventoryPage() {
         <div className="flex-1 grid grid-cols-2 grid-rows-1 gap-5 h-[100%]">
           <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 4</CardTitle>
           </CardHeader>
         </Card>
         <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 5</CardTitle>
           </CardHeader>
         </Card>
       </div>
       <div className="flex-1 grid grid-cols-2 grid-rows-1 gap-5 h-[100%]">
           <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 6</CardTitle>
           </CardHeader>
         </Card>
         <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 7</CardTitle>
           </CardHeader>
         </Card>
       </div>
