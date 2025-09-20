@@ -10,18 +10,21 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'Dashboard',
+  description: 'Dashboard layout for the application',
+
+}
 import { BellDot, UserRound } from 'lucide-react';
 export default function Home({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider
-      style={{
-        "--sidebar-width": "18rem",
-        "--sidebar-width-icon": "4.5rem",
-      }}
+      // Custom CSS vars for sidebar width
+      style={{} as React.CSSProperties}
       className="data-[collapsed=true]:w-6rem"
     >
       <AppSidebar></AppSidebar>
@@ -48,7 +51,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <div className="p-4">
+        <div className="w-full h-full min-h-screen">
           {children}
         </div>
       </SidebarInset>
