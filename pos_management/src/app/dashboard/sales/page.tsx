@@ -1,12 +1,26 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import React, { useState } from 'react';
-import Image from 'next/image';
+import SummaryCards, { SummaryCardsData, SummaryCardsSkeleton } from '@/components/ui/dashboard/summarycards';
+import React, { useState, Suspense } from 'react';
+
+import BranchSales from '@/components/ui/dashboard/branchsales';
+import StoreStatistics from '@/components/ui/dashboard/storestatistics';
+import { storesStatsData, storeSalesData } from '@/components/ui/dashboard/mockdata';
+
 import Footer from '@/components/ui/footer';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function SalesPage() {
+  
+  const summaryCardsData: SummaryCardsData = {
+    todaySales: 0,
+    todaySalesChange: 0,
+    todayOrders: 0,
+    todayRevenue: 0,
+    todayRevenueChange: 0,
+  };
+  
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const pathname = usePathname();
@@ -17,11 +31,13 @@ export default function SalesPage() {
     { name: 'Finance', route: '/dashboard/finance' },
   ];
 
+  // storeSalesData is now imported from mockdata.ts
+
   return (
-    <main className="p-2 m-4 flex flex-col gap-6 md:gap-10 h-[80vh]">
-      <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
-        <h1 className="text-xl md:text-2xl font-bold">Sales</h1>
-        <div className="flex items-center gap-4">
+  <main className="flex flex-col gap-4 md:gap-8 lg:gap-10 w-full h-full min-h-screen px-2 md:px-6 lg:px-12 py-2">
+  <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 md:mb-4 gap-2 md:gap-4 w-full">
+  <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">Sales</h1>
+        <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto">
           <input 
             type="text"
             placeholder="Branch..."
@@ -30,7 +46,7 @@ export default function SalesPage() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-4 md:mb-6 gap-2 md:gap-4 w-full">
         <div className="flex bg-gray-100 p-2 rounded-md w-full lg:w-max overflow-x-auto">
           {tabs.map(tab => (
             <Link
@@ -46,7 +62,7 @@ export default function SalesPage() {
             </Link>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row items-center gap-2">
+  <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
           <input
             type="date"
             value={startDate}
@@ -63,37 +79,20 @@ export default function SalesPage() {
         </div>
       </div>
 
-      <div className="flex-1 flex gap-4">
-        <div className='flex flex-col gap-4 w-full lg:w-2/3'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-            <Card className="border shadow-sm h-24 md:h-32">
-              <CardHeader className="p-2 md:p-2">
-                <CardTitle className="text-sm md:text-sm font-semibold">Today Sales</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="border shadow-sm h-24 md:h-32">
-              <CardHeader className="p-2 md:p-2">
-                <CardTitle className="text-sm md:text-sm font-semibold">Today Orders</CardTitle>
-              </CardHeader>
-            </Card>
-            <Card className="border shadow-sm h-24 md:h-32 sm:col-span-2 md:col-span-1">
-              <CardHeader className="p-2 md:p-2">
-                <CardTitle className="text-sm md:text-sm font-semibold">Today Revenue</CardTitle>
-              </CardHeader>
-            </Card>
-          </div>
-          <Card className="border shadow-sm flex-1 min-h-[200px]">
-            <CardHeader className="p-3 md:p-4">
-              <CardTitle className="text-sm md:text-lg font-bold">Stores Sales</CardTitle>
-            </CardHeader>
-          </Card>
+      <div className="flex-1 flex flex-col lg:flex-row gap-4 w-full">
+        <div className="flex flex-col gap-4 w-full lg:w-2/3">
+          <Suspense fallback={<SummaryCardsSkeleton />}>
+            <SummaryCards data={summaryCardsData} />
+          </Suspense>
+          <Suspense fallback={<Skeleton className="w-full h-48" />}>
+            <BranchSales storeSalesData={storeSalesData} />
+          </Suspense>
         </div>
-
-        <Card className="border shadow-sm w-full h-150 min-h-[400px]">
-          <CardHeader className="p-3 md:p-4 text-left">
-            <CardTitle className="text-sm md:text-lg font-bold">Analytics Chart</CardTitle>
-          </CardHeader>
-        </Card>
+        <div className="w-full lg:w-1/3 flex">
+          <Suspense fallback={<Skeleton className="w-full h-[320px]" />}>
+            <StoreStatistics storesStatsData={storesStatsData} />
+          </Suspense>
+        </div>
       </div>
       <Footer />
     </main>

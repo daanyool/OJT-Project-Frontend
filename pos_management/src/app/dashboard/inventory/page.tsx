@@ -65,15 +65,46 @@ export default function InventoryPage() {
         </div>
       </div>
       {/* Cards */}
-      <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-2">
-        <Card className="w-100 h-100 border shadow-sm">
+      <div className='flex flex-col lg:flex-row gap-5 h-[100vh]'>
+        <div className="flex-1 grid grid-cols-3 grid-rows-1 gap-5">
+        <Card className="w-[100%] h-[100%] border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 1</CardTitle>
           </CardHeader>
         </Card>
-        <Card className="w-100 h-100 border shadow-sm">
+        <Card className="w-[100%] h-[100%] border shadow-sm border-blue-500">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Card Title</CardTitle>
+            <CardTitle className="text-lg font-bold">Card Title 2</CardTitle>
+          </CardHeader>
+        </Card>
+        <Card className="w-[100%] h-100 border shadow-sm border-blue-500">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Card Title 3</CardTitle>
+          </CardHeader>
+        </Card>
+        </div>
+       </div>
+        <div className="flex-1 grid grid-cols-2 grid-rows-1 gap-5 h-[100%]">
+          <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Card Title 4</CardTitle>
+          </CardHeader>
+        </Card>
+        <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Card Title 5</CardTitle>
+          </CardHeader>
+        </Card>
+      </div>
+      <div className="flex-1 grid grid-cols-2 grid-rows-1 gap-5 h-[100%]">
+          <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Card Title 6</CardTitle>
+          </CardHeader>
+        </Card>
+        <Card className="w-[100%] h-80 border shadow-sm border-blue-500">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Card Title 7</CardTitle>
           </CardHeader>
         </Card>
       </div>
